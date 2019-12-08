@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('chat', { title: 'Chat-Application' });
 });
 
-var io = require('socket.io');
+var server = require('http').server(express());
+var io = require('socket.io')(server);
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
         io.emit('chat message', msg);
