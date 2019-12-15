@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var server = require('http')(express());
+var server = require('http').Server(express());
 var io = require('socket.io')(server);
 
 /* GET home page. */
